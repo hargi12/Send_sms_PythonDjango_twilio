@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <table class="table table-bordered" id="mydata">
+            <thead>
+                <tr>
+                    <th>Names</th>
+                    <th>Telephone</th>
+                    <th>Supporter Name</th>
+                    <th>Supporter telephone</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Abaasa Sharon</td>
+                    <td>0703986789</td>
+                    <td>John Doe</td>
+                    <td>0701444556</td>
+                </tr>
+
+                <tr>
+                    <td>Gichuhi Haron</td>
+                    <td>0709098756</td>
+                    <td>Jane Doe</td>
+                    <td>0701444557</td>
+                </tr>
+
+                <tr>
+                    <td>Kaweesa rodney</td>
+                    <td>0700784656</td>
+                    <td>Jack </td>
+                    <td>0701444558</td>
+                </tr>
+            
+            </tbody>
+    </table>
+
+    {% block js %}
+    
+        <script>
+            $(document).ready(function(){
+                $('#mydata').DataTable({
+                    "pageLength": 5,
+                });
+            });
+        </script>
+
+    {% endblock  %}
+{% endblock  %}

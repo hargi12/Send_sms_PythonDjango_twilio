@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <table class="table table-bordered" id="mydata">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><center><a class="btn btn-success" href="{% url 'accounts:edit' user.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'accounts:delete' user.id %}">Delete</a></center></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+
+    {% block js %}
+    
+        <script>
+            $(document).ready(function(){
+                $('#mydata').DataTable({
+                    "pageLength": 5,
+                });
+            });
+        </script>
+
+    {% endblock  %}
+{% endblock  %}

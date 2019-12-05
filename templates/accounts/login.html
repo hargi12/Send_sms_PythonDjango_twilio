@@ -1,0 +1,32 @@
+ {% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Log In</h5>
+                <hr>
+                <form method="POST" action="{% url 'accounts:login' %}" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputEmail4">Username</label>
+                        <input class="form-control" type="text" required name="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputPassword4">Password</label>
+                        <input class="form-control" type="password" required name="password">
+                    </div>
+        
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+                <div>
+                    {% for message in messages %}
+                        <h3>{{ message }}</h3><!-- try alerts -->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock  %}
