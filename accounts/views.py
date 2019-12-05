@@ -108,13 +108,13 @@ def sendsms(request):
         patientmessage = request.POST['patientmessage']
 
         account_sid = 'ACe8ed5ccafe2c280d4148ef3971f6bdeb'
-        auth_token = 'af05c874ecf6aa51995bf0c7c108c654'
+        auth_token = 'your authorization token goes here'
         client = Client(account_sid, auth_token)
 
         message = client.messages \
                         .create(
                             body= patientmessage,
-                            from_='+12029183933',
+                            from_='Twilio Assigned Phone Number goes here',
                             to= phonenumber
                         )
     return render(request, 'accounts/sendsms.html')
